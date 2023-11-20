@@ -31,6 +31,24 @@ public abstract class Person {
         innerLocation.removePeople(this);
         System.out.printf("%s выбираeтся из %s.\n", name, innerLocation.getName());
     }
+    
+    public void turnOnTheElectricity(Electricity electricity) {
+        if (electricity.isOn()) {
+            System.out.printf("%s выключил электричество.\n", name);
+        } else {
+            System.out.printf("%s включил электричество.\n", name);
+        }
+        electricity.toggle();
+    }
+
+    public void goToBed(Bed bed) {
+        bed.setPersonOnBed(this);
+        System.out.printf("%s лег на кровать.\n", name);
+    }
+
+    public void speak(String phrase) {
+        System.out.printf("%s сказал: %s.\n", name, phrase);
+    }
 
     @Override
     public String toString() {
