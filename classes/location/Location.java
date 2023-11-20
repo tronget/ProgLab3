@@ -32,6 +32,6 @@ public abstract class Location {
 
     @Override
     public String toString() {
-        return "Локация - %s.\n".formatted(name);
+        return "Локация - %s".formatted(name);
     }
 }
