@@ -3,7 +3,14 @@ package classes.persons;
 import classes.things.Electricity;
 
 public class Znayka extends Person {
-    public Znayka() {
+    private static Znayka instance;
+    public static synchronized Znayka getInstance() {
+        if (instance == null) {
+            instance = new Znayka();
+        }
+        return instance;
+    }
+    private Znayka() {
         super("Знайка");
     }
 
