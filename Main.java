@@ -15,9 +15,9 @@ public class Main {
         Electricity electricity = new Electricity();
         room.addThings(bed, pillow, electricity);
 
-        Guslya guslya = new Guslya();
+        Guslya guslya = Guslya.getInstance();
         Crowd crowd = new Crowd("Все, кроме Знайки");
-        Znayka znayka = new Znayka();
+        Znayka znayka = Znayka.getInstance();
         room.addPeople(guslya, crowd, znayka);
 
         guslya.speak("что-то, что всех рассмешило");
