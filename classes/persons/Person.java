@@ -1,6 +1,8 @@
 package classes.persons;
 
 import classes.location.InnerLocation;
+import classes.things.Bed;
+import classes.things.Electricity;
 import enums.Mood;
 
 import java.util.Objects;
@@ -8,9 +10,11 @@ import java.util.Objects;
 public abstract class Person {
     protected final String name;
     private Mood mood = Mood.DEFAULT;
+
     public Person() {
         this.name = "Безымянный";
     }
+
     public Person(String name) {
         this.name = name;
     }
@@ -31,7 +35,7 @@ public abstract class Person {
         innerLocation.removePeople(this);
         System.out.printf("%s выбираeтся из %s.\n", name, innerLocation.getName());
     }
-    
+
     public void turnOnTheElectricity(Electricity electricity) {
         if (electricity.isOn()) {
             System.out.printf("%s выключил электричество.\n", name);
@@ -48,6 +52,17 @@ public abstract class Person {
 
     public void speak(String phrase) {
         System.out.printf("%s сказал: %s.\n", name, phrase);
+    }
+
+    public void beAshamed() {
+        setMood(Mood.ASHAMED);
+        System.out.printf("%s стыдится.\n", name);
+    }
+
+    public void laughAtPerson(Person person) {
+        System.out.printf("%s смеются над %s.\n", name, person.name);
+        this.setMood(Mood.FUNNY);
+        person.beAshamed();
     }
 
     @Override
