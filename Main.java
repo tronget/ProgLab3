@@ -16,13 +16,13 @@ public class Main {
         room.addThings(bed, pillow, electricity);
 
         Guslya guslya = new Guslya();
-        Crowd crowd = new Crowd();
+        Crowd crowd = new Crowd("Все, кроме Знайки");
         Znayka znayka = new Znayka();
         room.addPeople(guslya, crowd, znayka);
 
-        guslya.speak();
+        guslya.speak("что-то, что всех рассмешило");
 
-        crowd.laughAtZnayka(znayka);
+        crowd.laughAtPerson(znayka);
         crowd.goOut(room);
         guslya.goOut(room);
 
